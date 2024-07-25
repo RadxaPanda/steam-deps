@@ -1,0 +1,38 @@
+Source: steam-deps
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: admin
+Priority: standard
+Standards-Version: 4.6.0
+Build-Depends: debhelper (>=12~),
+               devscripts,
+               dh-exec,
+               lintian
+
+Package: steam-deps
+Architecture: all
+Section: admin
+Priority: standard
+Depends:  libc6:armhf, 
+          libsdl2-2.0-0:armhf, 
+          libsdl2-image-2.0-0:armhf, 
+          libsdl2-mixer-2.0-0:armhf, 
+          libsdl2-ttf-2.0-0:armhf, 
+          libopenal1:armhf, 
+          libpng16-16:armhf, 
+          libfontconfig1:armhf, 
+          libxcomposite1:armhf, 
+          libbz2-1.0:armhf, 
+          libxtst6:armhf, 
+          libsm6:armhf, 
+          libice6:armhf, 
+          libxinerama1:armhf, 
+          libxdamage1:armhf, 
+          libdrm2:armhf, 
+          libgbm1:armhf, 
+          libibus-1.0-5, 
+          zenity, 
+          libgl1:armhf, 
+          libgl1-mesa-dri:armhf, 
+          binfmt-support
+Description: Steam dependencies package
+ Used to provide the armhf packages needed by box86/steam

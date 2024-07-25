@@ -1,0 +1,7 @@
+/.debhelper
+/debhelper-build-stamp
+/files
+/steam-deps*/
+/*.debhelper.log
+/*.postrm.debhelper
+/*.substvars

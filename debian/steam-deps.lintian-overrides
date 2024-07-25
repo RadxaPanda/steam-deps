@@ -1,0 +1,2 @@
+# This is a meta package so no need for stuff in the package
+steam-deps: empty-binary-package
