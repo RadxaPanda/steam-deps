@@ -1,2 +1,2 @@
-# steam-deps
-This package is used to provide the armhf packages needed by box86/steam
+# steam-i686
+Steam package for arm64

@@ -1,17 +1,17 @@
-Source: steam-deps
+Source: steam-i686
 Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
-Section: admin
-Priority: standard
+Section: games
+Priority: optional
 Standards-Version: 4.6.0
 Build-Depends: debhelper (>=12~),
                devscripts,
                dh-exec,
                lintian
 
-Package: steam-deps
-Architecture: all
-Section: admin
-Priority: standard
+Package: steam-i686
+Architecture: arm64
+Section: games
+Priority: optional
 Depends:  libc6:armhf, 
           libsdl2-2.0-0:armhf, 
           libsdl2-image-2.0-0:armhf, 
@@ -33,6 +33,18 @@ Depends:  libc6:armhf,
           zenity, 
           libgl1:armhf, 
           libgl1-mesa-dri:armhf, 
-          binfmt-support
-Description: Steam dependencies package
- Used to provide the armhf packages needed by box86/steam
+          binfmt-support,
+          box64:arm64,
+          box86:armhf,
+          pkexec | policykit-1,
+          realpath,
+          curl,
+          file,
+          xz-utils,
+Replaces: steam, steam-devices, steam-installer, steam64
+Provides: steam, steam-devices, steam-installer
+Homepage: http://www.steampowered.com/
+Description: Launcher for the Steam software distribution service
+ Steam is a software distribution service with an online store, automated
+ installation, automatic updates, achievements, SteamCloud synchronized
+ savegame and screenshot functionality, and many social features.

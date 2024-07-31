@@ -1,0 +1,31 @@
+#!/bin/sh -e
+# postinst script for steam
+#
+# see: dh_installdeb(1)
+
+# Trigger an update to let our new udev rules be immediately effective without
+# requiring a system reboot.
+# Usually `--reload-rules` is unnecessary, but it doesn't do any harm.
+udevadm control --reload-rules || true
+udevadm trigger --action=change --sysname-match=uinput || true
+udevadm trigger --action=change --subsystem-match=usb --attr-match=idVendor=28de || true
+udevadm trigger --action=change --subsystem-match=hidraw || true
+
+# popup update notification for the user to run Steam and complete the per-user install
+PACKAGE=steam
+UPDATENOTIFIERDIR=/var/lib/update-notifier/user.d
+if [ -d $UPDATENOTIFIERDIR ] ; then
+    cat >$UPDATENOTIFIERDIR/$PACKAGE-install-notify <<__EOF__
+Name: Steam Installer
+Priority: Medium
+Command: /usr/bin/$PACKAGE
+DontShowAfterReboot: False
+ButtonText: Start Steam
+DisplayIf: test ! -x ~/.steam/$PACKAGE/ubuntu12_32/steam
+OnlyAdminUsers: False
+Description: 
+ Start Steam to complete installation of the Steam for the current user.
+__EOF__
+fi
+
+#DEBHELPER#

@@ -1,4 +1,4 @@
 # Our package is built on GitHub-hosted runner,
 # which uses Ubuntu, and will default to zstd compression.
 # This is currently not supported in Debian.
-steam-deps source: custom-compression-in-debian-rules
+steam-i686 source: custom-compression-in-debian-rules

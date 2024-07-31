@@ -1,4 +1,4 @@
-PROJECT ?= steam-deps
+PROJECT ?= steam-i686
 PREFIX ?= /usr
 BINDIR ?= $(PREFIX)/bin
 LIBDIR ?= $(PREFIX)/lib
@@ -10,6 +10,7 @@ all: build
 
 .PHONY: build
 build:
+	./build.sh
 #
 # Test
 #
@@ -28,8 +29,7 @@ clean: clean-deb
 
 .PHONY: clean-deb
 clean-deb:
-	rm -rf debian/.debhelper debian/$(PROJECT)/ debian/debhelper-build-stamp debian/files debian/*.debhelper.log debian/*.postrm.debhelper debian/*.substvars \
-		src/usr/share/wallpapers/ src/usr/share/images/
+	rm -rf debian/.debhelper debian/$(PROJECT)/ debian/debhelper-build-stamp debian/files debian/*.debhelper.log debian/*.postrm.debhelper debian/*.substvars steam/
 
 #
 # Release
@@ -40,7 +40,7 @@ dch: debian/changelog
 
 .PHONY: deb
 deb: debian
-	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags bad-distribution-in-changes-file -- %p_%v_*.changes" --no-sign -b
+	debuild --no-lintian --lintian-hook "lintian --fail-on error,warning --suppress-tags bad-distribution-in-changes-file -- %p_%v_*.changes" --no-sign -b -aarm64 -Pcross
 
 .PHONY: release
 release:

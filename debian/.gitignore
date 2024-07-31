@@ -1,7 +1,7 @@
 /.debhelper
 /debhelper-build-stamp
 /files
-/steam-deps*/
+/steam-i686*/
 /*.debhelper.log
 /*.postrm.debhelper
 /*.substvars
