@@ -1,1 +1,6 @@
 steam-i686: binary-from-other-architecture
+steam-i686: package-section-games-but-contains-no-game
+steam-i686: python3-script-but-no-python3-dep
+steam-i686: appstream-metadata-missing-modalias-provide
+steam-i686: copyright-without-copyright-notice
+steam-i686: no-manual-page
